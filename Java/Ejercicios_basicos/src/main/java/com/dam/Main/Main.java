@@ -5,17 +5,23 @@ import com.dam.ejercicios.Control_Structures;
 import com.dam.ejercicios.Static_data_types;
 
 import javax.naming.ldap.Control;
+import java.util.Random;
+import java.util.Scanner;
 
-public class Main
-{
-    public static void main( String[] args )
-    {
+public class Main {
+    public static void main(String[] args) {
         //Basicos.formattedDate();
         //Basicos.GramOunceConverter();
         //Basicos.NumbersStrings();
         //Basicos.CircleArea();
         //Control_Structures.Triangle();
         //Control_Structures.GroupPeople();
-        Static_data_types.Element_Found();
+
+        // Array of 4 numbers
+        //Static_data_types.Element_Found(numbers);
+        //Static_data_types.Array_Counter(numbers);
+        //Static_data_types.Array_Sort(numbers);
+        //Static_data_types.MatrixAddition();
+        Static_data_types.MonthEnum();
     }
 }
