@@ -2,6 +2,7 @@ package com.dam.Main;
 
 import com.dam.ejercicios.Basicos;
 import com.dam.ejercicios.Control_Structures;
+import com.dam.ejercicios.Estring;
 import com.dam.ejercicios.Static_data_types;
 
 import javax.naming.ldap.Control;
@@ -22,6 +23,10 @@ public class Main {
         //Static_data_types.Array_Counter(numbers);
         //Static_data_types.Array_Sort(numbers);
         //Static_data_types.MatrixAddition();
-        Static_data_types.MonthEnum();
+        //Static_data_types.MonthEnum();
+        //Estring.SortJoin();
+        //Estring.CheckMessages();
+        String texto = "(let ((new (x-point a y))))";
+        Estring.LispChecker(texto);
     }
 }

@@ -113,10 +113,10 @@ public class Static_data_types {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a month of the year by a number:");
         monthYear aMonth = monthYear.valueOf(sc.nextLine());
-        String [] months31 = new String; {January, March, May, July, August, October, December};
+        /*String [] months31 = new String []; {January, March, May, July, August, October, December};
 
 
-        System.out.println(aMonth + " have " + days + " days.");
+        System.out.println(aMonth + " have " + days + " days.");*/
 
 
 
