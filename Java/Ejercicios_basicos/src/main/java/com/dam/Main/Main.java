@@ -1,16 +1,15 @@
 package com.dam.Main;
 
-import com.dam.ejercicios.Basicos;
-import com.dam.ejercicios.Control_Structures;
-import com.dam.ejercicios.Estring;
-import com.dam.ejercicios.Static_data_types;
+import com.dam.ejercicios.*;
 
 import javax.naming.ldap.Control;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        Scanner entrada = new Scanner(System.in);
         //Basicos.formattedDate();
         //Basicos.GramOunceConverter();
         //Basicos.NumbersStrings();
@@ -26,7 +25,13 @@ public class Main {
         //Static_data_types.MonthEnum();
         //Estring.SortJoin();
         //Estring.CheckMessages();
-        String texto = "(let ((new (x-point a y))))";
-        Estring.LispChecker(texto);
+        //String texto = "(let (new (x-point a y))))";
+        //Estring.LispChecker(texto);
+        //System.out.println("Enter a cardID (4digits and 3 upper letters)");
+        //String text = entrada.nextLine();
+        //Regular_expressions.CarIDCheck(text);
+        //Regular_expressions.EmailChecker();
+        String text = "Too hot to hoot ";
+        Functions.isPalindrome(text);
     }
 }
