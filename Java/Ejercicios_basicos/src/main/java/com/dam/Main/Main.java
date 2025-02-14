@@ -31,7 +31,20 @@ public class Main {
         //String text = entrada.nextLine();
         //Regular_expressions.CarIDCheck(text);
         //Regular_expressions.EmailChecker();
-        String text = "Too hot to hoot ";
-        Functions.isPalindrome(text);
+        //String text = "Too hot to hoot ";
+        //text = text.replaceAll("\\s+", "").toLowerCase();
+        //System.out.println(Functions.recursivePalindrome(text, 0, text.length() - 1));
+        /*if (Functions.recursivePalindrome(text)) {
+            System.out.println("The text is not a palindrome.");
+        } else {
+            System.out.println("The text is a palindrome.");
+        }*/
+
+        try
+        {
+            Error_handling.d();
+        } catch (InterruptedException e) {
+            System.err.println("Exception: " + e.getMessage());
+        }
     }
 }
