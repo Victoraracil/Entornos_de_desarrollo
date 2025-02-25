@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class VideoGame {
     Scanner entrada = new Scanner(System.in);
 
-    String title;
-    String genere;
-    public int price;
+    protected String title;
+    protected String genere;
+    protected int price;
 
     public VideoGame() {
 

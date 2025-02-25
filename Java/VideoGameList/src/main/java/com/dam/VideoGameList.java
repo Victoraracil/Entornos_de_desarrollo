@@ -20,6 +20,21 @@ import com.dam.Entities.Entities.VideoGame;
  * to specify the company information for every videogame (besides video game initial data).
  * Make sure that you share the same Company object among all the video games
  * belonging to the same company.
+ *
+ * Improve previous exercise VideoGameList2.java in another
+ * source file called VideoGameList3.java.
+ * Add a new class called PCVideoGame which inherits from VideoGame class.
+ * It will have two new attributes called minimumRAM and minimumHD to
+ * store the minimum amount of RAM memory and hard disk space required
+ * to play the game (both integers). Define the corresponding constructor
+ * to set these values (and use super to call parent’s constructor to set
+ * the inherited values).
+ * Then, add some PC video games to the array and repeat the same steps
+ * as in previous exercise.
+ *
+ * Also override toString method in VideoGame class so that we can print
+ * a video game in the screen with its information
+ * by symply calling System.out.println
  */
 public class VideoGameList
 {
@@ -32,7 +47,7 @@ public class VideoGameList
             game[i].PedirDatos();
         }
 
-
+        Order(VideoGame[]);
 
         for (int i = 0; i < game.length; i++)
         {
@@ -41,7 +56,7 @@ public class VideoGameList
         }
     }
 
-    public void Compare(VideoGame [] game){
+    public void Order(VideoGame [] game){
         for (int i = 1; i < game.length; i++){
             if (game[i].price > game[i+1].price){
                 VideoGame aux = new VideoGame();
