@@ -1,67 +1,34 @@
 package com.dam.Entities.Entities;
 
-import java.util.EmptyStackException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class VideoGame {
-    Scanner entrada = new Scanner(System.in);
+    private String title;
+    private String genre;
+    private double price;
+    private Company company;
 
-    protected String title;
-    protected String genere;
-    protected int price;
-
-    public VideoGame() {
-
-    }
-
-    public void PedirDatos(){
-        try{
-            System.out.println("Introduce the title of the game");
-            setTitle(entrada.nextLine());
-            System.out.println("Introduce the genere of the game");
-            setGenere(entrada.nextLine());
-            System.out.println("Introduce the price of the game");
-            setPrice(entrada.nextInt());
-        }catch (ArithmeticException e){
-            System.err.println("ERROR");
-        }catch (EmptyStackException e){
-            System.err.println("ERROR");
-        }catch (InputMismatchException e){
-            System.err.println("Has introducido texto en vez de un numero");
-        }
-    }
-
-    public String ToString(){
-        return getTitle() + "; " + getGenere() + "; " + getPrice();
-    }
-
-    public void ShowGame(){
-        System.out.println(ToString());
+    public VideoGame(String title, String genre, double price, Company company) {
+        this.title = title;
+        this.genre = genre;
+        this.price = price;
+        this.company = company;
     }
 
     public String getTitle() {
-        return "Title: " + title;
+        return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public double getPrice() {
+        return price;
     }
 
-    public String getGenere() {
-        return "Genere: " + genere;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    @Override
+    public String toString() {
+        return "Title: " + title + ", Genre: " + genre + ", Price: " + price +
+                ", Company: " + company.getName() + " (Founded: " + company.getFoundationYear() + ")";
     }
-
-    public String getPrice() {
-        return "Price: " + price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
 }
+

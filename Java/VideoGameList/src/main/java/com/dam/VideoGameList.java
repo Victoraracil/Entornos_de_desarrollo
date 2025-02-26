@@ -1,6 +1,13 @@
 package com.dam;
 
+import com.dam.Entities.Entities.Company;
+import com.dam.Entities.Entities.PCVideoGame;
 import com.dam.Entities.Entities.VideoGame;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 
 /**
  * Create a program called VideoGameList.java to store objects of
@@ -31,39 +38,68 @@ import com.dam.Entities.Entities.VideoGame;
  * the inherited values).
  * Then, add some PC video games to the array and repeat the same steps
  * as in previous exercise.
- *
  * Also override toString method in VideoGame class so that we can print
  * a video game in the screen with its information
  * by symply calling System.out.println
  */
-public class VideoGameList
-{
-    public static void main( String[] args )
-    {
-        VideoGame [] game = new VideoGame[5];
-        for (int i = 0; i < game.length; i++)
-        {
-            game[i] = new VideoGame();
-            game[i].PedirDatos();
-        }
+public class VideoGameList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        VideoGame[] games = new VideoGame[5];
+        Map<String, Company> companyMap = new HashMap<>();
 
-        Order(VideoGame[]);
+        // Getting user input
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter details for video game " + (i + 1) + ":");
+            System.out.print("Title: ");
+            String title = scanner.nextLine();
+            System.out.print("Genre: ");
+            String genre = scanner.nextLine();
+            System.out.print("Price: ");
+            double price = scanner.nextDouble();
+            scanner.nextLine(); // Consume newline
 
-        for (int i = 0; i < game.length; i++)
-        {
-            game[i].ShowGame();
-            System.out.println();
-        }
-    }
+            // Get or create company
+            System.out.print("Company Name: ");
+            String companyName = scanner.nextLine();
+            System.out.print("Company Foundation Year: ");
+            int foundationYear = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
-    public void Order(VideoGame [] game){
-        for (int i = 1; i < game.length; i++){
-            if (game[i].price > game[i+1].price){
-                VideoGame aux = new VideoGame();
-                aux = game[i+1];
-                game[i+1] = game[i];
+            Company company = companyMap.computeIfAbsent(companyName, k -> new Company(companyName, foundationYear));
 
+            // Check if it's a PC game
+            System.out.print("Is this a PC game? (yes/no): ");
+            String isPC = scanner.nextLine().trim().toLowerCase();
+            if (isPC.equals("yes")) {
+                System.out.print("Minimum RAM (GB): ");
+                int minRAM = scanner.nextInt();
+                System.out.print("Minimum HD (GB): ");
+                int minHD = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+                games[i] = new PCVideoGame(title, genre, price, company, minRAM, minHD);
+            } else {
+                games[i] = new VideoGame(title, genre, price, company);
             }
         }
+
+        // Finding the cheapest and most expensive video game
+        VideoGame cheapest = games[0];
+        VideoGame mostExpensive = games[0];
+
+        for (int i = 1; i < games.length; i++) {
+            if (games[i].getPrice() < cheapest.getPrice()) {
+                cheapest = games[i];
+            }
+            if (games[i].getPrice() > mostExpensive.getPrice()) {
+                mostExpensive = games[i];
+            }
+        }
+
+        // Display results
+        System.out.println("\nCheapest Video Game: " + cheapest);
+        System.out.println("Most Expensive Video Game: " + mostExpensive);
+
+        scanner.close();
     }
 }

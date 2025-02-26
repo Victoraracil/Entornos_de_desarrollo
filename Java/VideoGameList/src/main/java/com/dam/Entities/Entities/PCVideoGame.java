@@ -16,11 +16,18 @@ package com.dam.Entities.Entities;
  * a video game in the screen with its information
  * by symply calling System.out.println
  */
-public class PCVideoGame {
-    protected int minimumRAM;
-    protected int minimumHD;
+public class PCVideoGame extends VideoGame {
+    private int minimumRAM;
+    private int minimumHD;
 
-    public PCVideoGame(){
+    public PCVideoGame(String title, String genre, double price, Company company, int minimumRAM, int minimumHD) {
+        super(title, genre, price, company);
+        this.minimumRAM = minimumRAM;
+        this.minimumHD = minimumHD;
+    }
 
+    @Override
+    public String toString() {
+        return super.toString() + ", Minimum RAM: " + minimumRAM + "GB, Minimum HD: " + minimumHD + "GB";
     }
 }
